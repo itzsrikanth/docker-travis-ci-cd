@@ -1,0 +1,17 @@
+sudo: required
+language: python
+dist: bionic
+services:
+- docker
+dd:
+  secure: kpKViTgeq0UG4Ov6sbF11ai+UrvswGQb/8JS+5mscXganJk3slU+gqnwFSzDLB5e4ojWAHtp9y5lt4MiQ++GGcsWjRmJVJqgw8foI+OTL9ehFgKZrUhrNoQlv2uLVQOAq5ZS7vFqPFSZyKDdrVsI8eWyMno/n4IBdIVVpJN8XnLWlXru1QzXjIrw6IShfpzYlllPj5lyzovGyWe1D37vIgLBMKZVnrcf3MlDYpCrHHf6fboheZ8tDQkeD4Fg33oXPNXCE7BRTjtKsIgo1a/WgvB6SPM3wrT5++zGnxTn7vMH4VY50ToHoeeh41uhGGj0LB7XCMeJ1yQ8UR6cjjnr8POW/La8yeLg1d74xP0rEYvmNPI1FG+jPTOq5hwMoWHoTT2QsnMw/WoscW4vkjjXWTNLWLHk6L0/yh5OK6ZO0N9qIxFtUUWyzMWy7VRdIDE3oORaFZrgEuEOe2wPX3Pi0Ix4ueqg5bR3ZgIqCjj4G/bGn5Re+Ewl5twPSwY/ueQNdXyepxH05DSYH/Tz7Xp2B1OXN7tJxKs/3aV16sC1DQauV5DkrR6P42V15XyrkyyTHYgWzpo1yR6CX0Ylpqr8ozi0zDX17wJdn+b0GIT0ZVzFS6i627Eh5xzEg+lfgcXo5AmmSjUkYpkHqc9uRYcCcIJKJAt4jWqHhiFbuKh1k7s=
+before_install:
+  - echo $GITHUB_TOKEN | docker login docker.pkg.github.com -u itzsrikanth --password-stdin
+branches:
+  only:
+    - master
+    - production
+    - development
+script: cd server && docker build -t server:dev . 
+after_success:
+  - docker push server:dev
