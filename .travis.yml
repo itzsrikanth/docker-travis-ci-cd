@@ -5,17 +5,13 @@ services:
 - docker
 env:
   global:
-    - secure: gjxlBnHvMHq2wzqk2SslGRJ3xm25Fb3P7wzexuu0ye4enc7ozziNyZRSipviQsm63zZzMzouaUMhY2q5ffhZmzq2/HgOQU+ax3sFwaLizx0ANBNNxyq/CKkSMbeZvdYU+Pt6qZLPViwHcSv+6ajgpAPOjj5luuqimIalGqYnIx+j2okvTyj79FB/+Dv/VSizCUuHnuWR6dC2QXRehK52CcE0sKHdsFR+Xm/29uFhpVJ0I8fgmusqJgXnltc2qt/GSwRdFUC6SK/a0xnRpE60o/HjFwD/fo0/Y7FBbUv/f3VF318P3TuMVZghoam+a0w0w9wiSbUoMEyEhVveWVrPxVqBbuYGAnqcBZUKB8lmBw7lKXxELlzPfxKs/dWO9q8Cc8fFsxciH83gIrKqkqg/P0UG5ZR1YpyhhkpnmB73Ib7u1WMgrRNeIsemx95S7+nG2RDBsVHyhV/3uu6R3CLAcMuqNIuarGi4JiUzG1y2CGKWor43CarLvtP79GVm6pJJKz7Tfk9JHYRi1H4kT3ZXU22uszh1ob5tRnGhDrdJkloriD237Qfr6A2y6lAJBL4mkEk/76jOqT8rio5NS9JLiX03frk+eSQuN0WvLcqqsfvPr029eRoxEEOtOb1xicIJh9XnUTbhHzWR+jdd92rl3cSznbxmpMqcYyoo7e7jjTk=
-    - CAMPFIRE_TOKEN=abc123
+  - secure: roHf74Zx8Ac55x1tIt3Ucz9Gmz9wJhq1iyGTX+UhVzDnM10Gf65pbwBrit9qpUSRXKYE2i2fp845eFcjHkTkATw3Hu1RTk4XQriaC/TV/co1A9Lo3T1tke2eHJ9oVqj9FH6S2VD171N/HJoCiY04HmBq2FdrVJXCxDvXzi+lY/MBF3ot8ZvAM1+LldM8h/s+3mUXDOIVfxc3o8q34Q/x0ZA5GtYzQQey6rlf4gWn8PfgIaEzOHmpiJQFKuAKlw6WzQqyU/x2jVT63yn1d12qGO2vLwdkvHocNIhxN5UPtUhCGibxMKR/SZucYM3qb/C2y3V9dMyn3bnoUfapixEVE5dGYRs+5V5SK7T5Bp/W1OWH4XBPnB0bd44lT79KVjt+C0G/npuGbpHLjSIJOH6bBcvKueODx0TDLqZnzTAFgoauyX6MIIh22N5j2P2WfRp0jR5FmKdyXa5N8G7AQiSrZ1R96h/hv+/MmVOtEEpbNFjux3BmJ8O3EyU8SWGQT6BmWT2HF8dbY4NfcJ0ZwLuITBow/Bf/I1HnLPlIJpyVfHGiTnQTwbCA7XFTH/bfFpRLwxkueAlKs45VsjEWvD+LtRhma6b6pUkhdHH15yflzZ2Al8tmSx5XvJanGbvwSPw2tL2bglACcZwVGJB+p3faXIBh6TFXmRKdP5g23YtZVfk=
+  - CAMPFIRE_TOKEN=abc123
 before_install:
-  - echo $CAMPFIRE_TOKEN
-  - X=fire && echo $X
-# - echo $GITHUB_TOKEN | docker login docker.pkg.github.com -u itzsrikanth --password-stdin
+- echo $ALPHA
 branches:
   only:
   - master
   - production
   - development
 script: cd server && docker build -t server:dev .
-# after_success:
-# - docker push server:dev
