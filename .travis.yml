@@ -9,6 +9,7 @@ env:
     - CAMPFIRE_TOKEN=abc123
 before_install:
   - echo $CAMPFIRE_TOKEN
+  - X=fire && echo $X
 # - echo $GITHUB_TOKEN | docker login docker.pkg.github.com -u itzsrikanth --password-stdin
 branches:
   only:
