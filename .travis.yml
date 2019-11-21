@@ -13,3 +13,5 @@ branches:
   - production
   - development
 script: cd server && docker build -t server:dev .
+after_success:
+  - docker push server:dev
